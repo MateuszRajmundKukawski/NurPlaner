@@ -1,9 +1,21 @@
 <resources>
     <string name="app_name">NurPlaner</string>
-        <string name="sacstr">Sac</string>
+        <string name="sacstr">SAC:</string>
     <string name="obl_bt">Oblicz!</string>
     <string name="opis">Opis działania aplikajci</string>
     <string name="ean">EAN</string>
     <string name="zapas">ZAPAS</string>
+    <string name="butla">Pojemność butli</string>
+    <string name="pstart">Ciśnienie początkowe</string>
+    <string name="pend">Ciśnienie końcowe</string>
+    <string name="avgD">Średnia głębokość</string>
+    <string name="dTime">Czas nurkwania</string>
+    <string name="test1">to jest jakis tam tekst</string>
+    <string name="test2">TEST1</string>
+    <string name="test3">TEST1</string>
+
+
+
+
 
 </resources>

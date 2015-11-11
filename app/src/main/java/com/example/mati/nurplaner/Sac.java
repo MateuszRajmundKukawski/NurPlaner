@@ -87,8 +87,8 @@ public class Sac extends AppCompatActivity implements OnItemSelectedListener, Vi
                 Toast.makeText(getApplicationContext(), "Ciśnienie końcowe większe niż początkowe", Toast.LENGTH_LONG).show();
             } else {
                 int mySac = getSac(cylinder, startP, endP, dTime, avgD);
-                String sacStr = Integer.toString(mySac);
-                Toast.makeText(getApplicationContext(), "SAC: " + sacStr, Toast.LENGTH_LONG).show();
+                String sacStr = "SAC: " + Integer.toString(mySac);
+                Toast.makeText(getApplicationContext(),   "SAC: " + sacStr, Toast.LENGTH_LONG).show();
                 TextView sac_TV = (TextView) findViewById(R.id.sacTextView);
                 sac_TV.setText(sacStr);
 
