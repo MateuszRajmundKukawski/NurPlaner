@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Sac extends AppCompatActivity implements OnItemSelectedListener, View.OnClickListener {
@@ -79,46 +80,69 @@ public class Sac extends AppCompatActivity implements OnItemSelectedListener, Vi
     public void onClickCalcBt() {
 //        String tmp = startP_ET.getText().toString();
 //        if (isEmpty(startP_ET))
-        startP = -1;
-        endP =  -1;
-        avgD =  -1;
-        dTime =  -1;
-        if (!TextUtils.isEmpty(startP_ET.getText())) {
+//        startP = -1;
+//        endP =  -1;
+//        avgD =  -1;
+//        dTime =  -1;
+        if (!TextUtils.isEmpty(startP_ET.getText())
+                && !TextUtils.isEmpty(endP_ET.getText())
+                && !TextUtils.isEmpty(avgD_ET.getText())
+                && !TextUtils.isEmpty(dTime_ET.getText())) {
 //            Toast.makeText(getApplicationContext(), "PODAJ CISNIENIE POCZATKOWE", Toast.LENGTH_LONG).show();
 
 //        startP = Integer.parseInt(startP_ET.getText().toString());
 //        } else {
             startP = Integer.parseInt(startP_ET.getText().toString());
+            endP = Integer.parseInt(endP_ET.getText().toString());
+            avgD = Integer.parseInt(avgD_ET.getText().toString());
+            dTime = Integer.parseInt(dTime_ET.getText().toString());
+            if (startP <= endP) {
+                Toast.makeText(getApplicationContext(), "Ciśnienie końcowe większe niż początkowe", Toast.LENGTH_LONG).show();
+            }
+            else{
+                int mySac = getSac(cylinder, startP, endP, dTime, avgD);
+                String sacStr = Integer.toString(mySac);
+                Toast.makeText(getApplicationContext(), "SAC: " + sacStr, Toast.LENGTH_LONG).show();
+                TextView sac_TV = (TextView) findViewById(R.id.sacTextView);
+                sac_TV.setText(sacStr);
+
+            }
+
+
 //            startP = 0;
         }
-        if (!TextUtils.isEmpty(endP_ET.getText())) {
-//            Toast.makeText(getApplicationContext(), "PODAJ CISNIENIE KONCOWE", Toast.LENGTH_LONG).show();
-//        } else {
-            endP = Integer.parseInt(endP_ET.getText().toString());
-
-        }
-        if (!TextUtils.isEmpty(avgD_ET.getText())) {
-//            Toast.makeText(getApplicationContext(), "Podaj średnią glebokosc", Toast.LENGTH_LONG).show();
-//        } else {
-            avgD = Integer.parseInt(avgD_ET.getText().toString());
-
-        }
-        if (!TextUtils.isEmpty(dTime_ET.getText())) {
-//            Toast.makeText(getApplicationContext(), "Podaje czas nurkowania", Toast.LENGTH_LONG).show();
-//        } else {
-            dTime = Integer.parseInt(dTime_ET.getText().toString());
-        }
-        if (startP <= endP) {
-            Toast.makeText(getApplicationContext(), "Ciśnienie końcowe większe niż początkowe", Toast.LENGTH_LONG).show();
-            startP = 0;
-            endP = 0;
-        }
-        if (startP > 0 && endP > 0 && avgD > 0 && dTime > 0) {
-            int mySac = getSac(cylinder, startP, endP, dTime, avgD);
-            Toast.makeText(getApplicationContext(), "SAC: " + Integer.toString(mySac), Toast.LENGTH_LONG).show();
-        } else {
+        else
+        {
             Toast.makeText(getApplicationContext(), "Popraw parametry", Toast.LENGTH_LONG).show();
         }
+//        if (!TextUtils.isEmpty(endP_ET.getText())) {
+////            Toast.makeText(getApplicationContext(), "PODAJ CISNIENIE KONCOWE", Toast.LENGTH_LONG).show();
+////        } else {
+//            endP = Integer.parseInt(endP_ET.getText().toString());
+//
+//        }
+//        if (!TextUtils.isEmpty(avgD_ET.getText())) {
+////            Toast.makeText(getApplicationContext(), "Podaj średnią glebokosc", Toast.LENGTH_LONG).show();
+////        } else {
+//            avgD = Integer.parseInt(avgD_ET.getText().toString());
+//
+//        }
+//        if (!TextUtils.isEmpty(dTime_ET.getText())) {
+////            Toast.makeText(getApplicationContext(), "Podaje czas nurkowania", Toast.LENGTH_LONG).show();
+////        } else {
+//            dTime = Integer.parseInt(dTime_ET.getText().toString());
+//        }
+//        if (startP <= endP) {
+//            Toast.makeText(getApplicationContext(), "Ciśnienie końcowe większe niż początkowe", Toast.LENGTH_LONG).show();
+//            startP = 0;
+//            endP = 0;
+//        }
+//        if (startP > 0 && endP > 0 && avgD > 0 && dTime > 0) {
+//            int mySac = getSac(cylinder, startP, endP, dTime, avgD);
+//            Toast.makeText(getApplicationContext(), "SAC: " + Integer.toString(mySac), Toast.LENGTH_LONG).show();
+//        } else {
+//            Toast.makeText(getApplicationContext(), "Popraw parametry", Toast.LENGTH_LONG).show();
+//        }
     }
 
 

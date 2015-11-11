@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">NurPlaner</string>
+        <string name="sacstr">Sac</string>
+    <string name="obl_bt">Oblicz!</string>
+    <string name="opis">Opis działania aplikajci</string>
+    <string name="ean">EAN</string>
+    <string name="zapas">ZAPAS</string>
+
 </resources>

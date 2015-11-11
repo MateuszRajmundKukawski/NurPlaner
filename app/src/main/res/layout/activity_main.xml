@@ -15,11 +15,22 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button" />
+            android:text="@string/sacstr"
+            android:id="@+id/sacActivity_BT" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ean"
+            android:id="@+id/eanActivity_BT" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/zapas"
+            android:id="@+id/reserveActivity_BT" />
     </LinearLayout>
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
+    <TextView android:text="@string/opis"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView" />
 
